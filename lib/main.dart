@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
+import 'package:taski_todo/core/app_wrapper/app_wrapper.dart';
 import 'package:taski_todo/core/dependencies/dependencies.dart';
-import 'package:taski_todo/pages/home/home_cubit.dart';
-import 'package:taski_todo/pages/home/home_page.dart';
+import 'package:taski_todo/core/routes/app_routes.dart';
+import 'package:taski_todo/core/ui/theme/app_theme.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setupDependencies();
-
-  runApp(const MyApp());
+  init();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<TaskCubit>(
-      create: (context) => GetIt.I<TaskCubit>(),
+    return AppWrapper(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.theme,
         title: 'Taski Todo',
-        home: HomePage(),
+        initialRoute: AppRoutes.navigator,
+        onGenerateRoute: AppRoutes.generateRoute,
       ),
     );
   }

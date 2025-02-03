@@ -1,19 +1,17 @@
 import 'package:taski_todo/models/task_model.dart';
 
-sealed class HomeState {}
+sealed class TaskState {}
 
-class HomeInitial extends HomeState {}
+final class TaskInitial extends TaskState {}
 
-class HomeLoading extends HomeState {}
+final class TaskLoading extends TaskState {}
 
-class HomeLoaded extends HomeState {
-  final List<TaskModel> tasks;
-
-  HomeLoaded(this.tasks);
+final class TaskLoaded extends TaskState {
+  final List<Task> tasks;
+  TaskLoaded(this.tasks);
 }
 
-class HomeError extends HomeState {
+final class TaskError extends TaskState {
   final String message;
-
-  HomeError(this.message);
+  TaskError(this.message);
 }
