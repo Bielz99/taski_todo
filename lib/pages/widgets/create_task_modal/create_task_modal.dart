@@ -7,8 +7,7 @@ import 'package:validatorless/validatorless.dart';
 class CreateTaskModal extends StatelessWidget {
   final TextEditingController titleController;
   final TextEditingController noteController;
-  final GlobalKey<FormState> _formKey =
-      GlobalKey<FormState>(); // Chave para o formulário
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   CreateTaskModal({
     super.key,
