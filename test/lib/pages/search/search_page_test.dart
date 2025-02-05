@@ -48,14 +48,11 @@ void main() {
 
     await pumpTestWidget(tester, mockTaskCubit);
 
-    // Verifica se o campo de pesquisa está na tela
     expect(find.byType(TextFormField), findsOneWidget);
 
-    // Digita no campo de pesquisa
     await tester.enterText(find.byType(TextFormField), 'Test');
     await tester.pump();
 
-    // Verifica se o método searchTasks foi chamado
     verify(() => mockTaskCubit.searchTasks('Test')).called(1);
   });
 
@@ -70,7 +67,6 @@ void main() {
 
     await pumpTestWidget(tester, mockTaskCubit);
 
-    // Verifica se as tarefas são exibidas na tela
     expect(find.text('Task 1'), findsOneWidget);
     expect(find.text('Subtitle 1'), findsOneWidget);
     expect(find.text('Task 2'), findsOneWidget);
@@ -83,7 +79,6 @@ void main() {
 
     await pumpTestWidget(tester, mockTaskCubit);
 
-    // Verifica se a mensagem "No result found." é exibida
     expect(find.text('No result found.'), findsOneWidget);
   });
 
@@ -93,7 +88,6 @@ void main() {
 
     await pumpTestWidget(tester, mockTaskCubit);
 
-    // Verifica se o CircularProgressIndicator é exibido
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
 
@@ -103,7 +97,6 @@ void main() {
 
     await pumpTestWidget(tester, mockTaskCubit);
 
-    // Verifica se a mensagem de erro é exibida
     expect(find.text('Error: Error loading tasks'), findsOneWidget);
   });
 }
