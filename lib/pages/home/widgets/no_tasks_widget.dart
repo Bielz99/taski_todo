@@ -64,12 +64,15 @@ class NoTasksWidget extends StatelessWidget {
                     color: Colors.blue,
                   ),
                   const SizedBox(width: 5),
-                  Text(
-                    'Create task',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+                  Flexible(
+                    child: Text(
+                      'Create task',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],

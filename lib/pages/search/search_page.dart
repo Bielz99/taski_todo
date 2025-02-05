@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taski_todo/core/ui/styles/app_text_styles.dart';
 import 'package:taski_todo/pages/home/home_cubit.dart';
 import 'package:taski_todo/pages/home/home_state.dart';
+import 'package:taski_todo/pages/widgets/taski_app_bar/taski_app_bar.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -12,42 +12,7 @@ class SearchPage extends StatelessWidget {
     final taskCubit = BlocProvider.of<TaskCubit>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.check_box,
-                  color: Colors.blue,
-                ),
-                SizedBox(width: 8),
-                Text('Taski', style: context.textStyles.textExtraBold),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  'John',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(width: 8),
-                CircleAvatar(
-                  radius: 18,
-                  backgroundImage: NetworkImage(
-                      'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      appBar: TaskiAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

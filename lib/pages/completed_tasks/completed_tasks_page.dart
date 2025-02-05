@@ -57,7 +57,7 @@ class _CompletedTasksPageState extends State<CompletedTasksPage> {
             }
 
             return Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 children: [
                   const CompletedTasksHeader(),

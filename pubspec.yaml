@@ -39,6 +39,9 @@ dependencies:
   get_it: ^8.0.3
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
+  validatorless: ^1.2.4
+  mocktail: ^1.0.4
+  bloc_test: ^9.1.7
 
 dev_dependencies:
   flutter_test:

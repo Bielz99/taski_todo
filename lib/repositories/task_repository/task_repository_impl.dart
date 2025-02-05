@@ -4,14 +4,10 @@ import 'package:taski_todo/models/task_model.dart';
 import 'task_repository.dart';
 
 class TaskRepositoryImpl implements TaskRepository {
-  static final TaskRepositoryImpl _instance = TaskRepositoryImpl._internal();
   static Database? _database;
-
-  factory TaskRepositoryImpl() {
-    return _instance;
+  set setDatabase(Database database) {
+    _database = database;
   }
-
-  TaskRepositoryImpl._internal();
 
   Future<Database> get database async {
     if (_database != null) return _database!;

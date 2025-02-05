@@ -5,7 +5,8 @@ import 'package:taski_todo/services/task_service/task_service.dart';
 class TaskServiceImpl implements TaskService {
   final TaskRepository _repository;
 
-  TaskServiceImpl(this._repository);
+  TaskServiceImpl({required TaskRepository repository})
+      : _repository = repository;
 
   @override
   Future<int> addTask(Task task) async {

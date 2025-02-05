@@ -20,7 +20,8 @@ void _initRepositories() {
 }
 
 void _initServices() {
-  sl.registerLazySingleton<TaskService>(() => TaskServiceImpl(sl()));
+  sl.registerLazySingleton<TaskService>(
+      () => TaskServiceImpl(repository: sl()));
 }
 
 void _initCubits() {
